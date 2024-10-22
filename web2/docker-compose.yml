@@ -1,0 +1,14 @@
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+    ports:
+      - "55552:80"
+    command: ["nginx", "-g", "daemon off;"]
+    deploy:
+      resources:
+        limits:
+          memory: 10M
+          cpus: "0.1"
+    restart: always

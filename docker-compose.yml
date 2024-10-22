@@ -1,0 +1,13 @@
+services:
+  balancer:
+    restart: always
+    image: nginx:alpine
+    ports:
+      - "55556:55556"
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf:ro"
+    deploy:
+      resources:
+        limits:
+          memory: 10M
+          cpus: "0.05"
